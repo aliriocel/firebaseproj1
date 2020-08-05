@@ -1,3 +1,19 @@
 <app-menu></app-menu>
 
-<p>livros works!</p>
+<div class="container">
+    <h1>Lista de Livros</h1>
+    <table class="table">
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Preço</th>
+            <th></th>
+        </tr>
+        <tr *ngFor="let livro of itens">
+<td>{{livro.id}}</td>
+<td>{{livro.titulo}}</td>
+<td>{{livro.preco | currency:'BRL'}}</td>
+<td><a [routerLink]="['/livros/',livro.id]" class="btn btn-warning">Vizualizar</a></td>
+        </tr>
+    </table>
+</div>

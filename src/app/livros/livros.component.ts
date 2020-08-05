@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Livro } from 'src/app/model/livro';
 
 @Component({
   selector: 'app-livros',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LivrosComponent implements OnInit {
 
-  constructor() { }
+itens : any[] = [];
+
+  constructor(private firestore : AngularFirestore) { }
 
   ngOnInit(): void {
+    this.firestore.collection('livro').snapshotChanges().subscribe(data=>{
+     
+
+      data.map(obj=>{
+        let livro : Livro;
+        livro  = obj.payload.doc.data() as Livro;
+        livro.id = obj.payload.doc.id;
+        this.itens.push(livro);
+      })
+      console.log(this.itens);
+    })
   }
 
 }

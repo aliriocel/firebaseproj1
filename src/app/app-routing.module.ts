@@ -18,10 +18,21 @@ const routes: Routes = [
     data : { authGuardPipe : redirecToLogin }
   },
 
+  
+  { 
+    path: 'livros/new', component: LivrosViewComponent,
+    canActivate : [AngularFireAuthGuard],
+    data : { authGuardPipe : redirecToLogin }
+  
+
+  },
+
   { 
     path: 'livros/:id', component: LivrosViewComponent,
     canActivate : [AngularFireAuthGuard],
     data : { authGuardPipe : redirecToLogin }
+  
+
   },
 
   { 

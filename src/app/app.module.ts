@@ -12,6 +12,8 @@ import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { LivroNewComponent } from './livro-new/livro-new.component';
+import { LivrosNewComponent } from './livros-new/livros-new.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     LoginComponent,
     LogoutComponent,
     MenuComponent,
-    LivrosViewComponent
+    LivrosViewComponent,
+    LivroNewComponent,
+    LivrosNewComponent
   ],
   imports: [
     BrowserModule,
