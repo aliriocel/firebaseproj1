@@ -10,38 +10,36 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class LoginComponent implements OnInit {
 
-  formGroup: FormGroup;
-  message: string = null;
+  formGroup : FormGroup;
+  message : string = null;
 
-  constructor(private formBuilder: FormBuilder,
-    private router: Router,
-    private auth: AngularFireAuth) {
-    this.iniciarForm();
-  }
-
+  constructor(private formBuilder : FormBuilder,
+    private router : Router,
+    private auth : AngularFireAuth) {
+      this.iniciarForm();
+    }
 
   ngOnInit(): void {
   }
 
-  iniciarForm() {
-    this.formGroup = this.formBuilder.group({
-      username: ['', [Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(13), Validators.maxLength(16)]]
+  iniciarForm(){
+    this.formGroup= this.formBuilder.group({
+      username : ['',[Validators.email] ],
+      password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(16)]]
     })
   }
 
-  tryLogin() {
-
+  tryLogin(){
     let user = this.formGroup.controls['username'].value;
     let pass = this.formGroup.controls['password'].value;
-
-    //  console.log(user + pass);
-    this.router.navigate(['livros']);
-    this.auth.signInWithEmailAndPassword(user, pass).then(data => {
-      // this.message = 'usuario ok';
-    }).catch(data => {
-      this.message = 'usuario invalido';
-    })
+    //console.log(user + pass);
+    this.auth.signInWithEmailAndPassword(user,pass).then(data=>{
+      //this.message = "Usuario ok";
+      this.router.navigate(['livros']);
+    }).catch(data=>{
+      this.message = "Usuário inválido";
+    });
   }
+
 
 }

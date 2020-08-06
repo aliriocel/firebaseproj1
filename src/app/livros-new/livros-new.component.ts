@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
 
+
 @Component({
   selector: 'app-livros-new',
   templateUrl: './livros-new.component.html',
@@ -36,7 +37,7 @@ export class LivrosNewComponent implements OnInit {
   
     console.log(this.formGroup.value); 
   
-    this.firestore.collection('livro').add(this.formGroup.value).then(() =>{
+    this.firestore.collection('livros').add(this.formGroup.value).then(() =>{
             this.message = "Cadastrado com sucesso!";
             this.formGroup.reset();
           }).catch(()=>{
