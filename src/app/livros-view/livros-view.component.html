@@ -19,6 +19,7 @@
         <div class="col-md-12">{{livro.resumo}}</div>
     </div>
 
-    <a [routerLink]="['/livros/update/',livro.id]" class="btn btn-warnig">Atualziar</a>
+    <a [routerLink]="['/livros/imagem/',livro.id]" class="btn btn-primary">Atualizar Capa</a>
+    <a [routerLink]="['/livros/update/',livro.id]" class="btn btn-warnig">Atualizar</a>
     <a [routerLink]="['/livros/delete/',livro.id]" class="btn btn-danger">Deletar</a>
 </div>

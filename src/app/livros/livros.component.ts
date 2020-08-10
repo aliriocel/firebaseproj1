@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { Livro } from 'src/app/model/livro';
+import { Livro } from '../model/livro';
 
 @Component({
   selector: 'app-livros',

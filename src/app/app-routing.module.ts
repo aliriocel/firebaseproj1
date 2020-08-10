@@ -9,6 +9,8 @@ import { LivrosDeleteComponent } from './livros-delete/livros-delete.component';
 import { LivrosUpdateComponent } from './livros-update/livros-update.component';
 import { LivrosNewComponent } from './livros-new/livros-new.component';
 import { UsuarioNewComponent } from './usuario-new/usuario-new.component';
+import { LivroImagemComponent } from './livro-imagem/livro-imagem.component';
+import { PerfilComponent } from './perfil/perfil.component';
 
 const redirecToLogin = () => redirectUnauthorizedTo(['login']);
 
@@ -58,6 +60,19 @@ const routes: Routes = [
 
   { 
     path: 'login/new', component: UsuarioNewComponent,
+  },
+
+  { 
+    path: 'perfil', component: PerfilComponent,
+    canActivate : [AngularFireAuthGuard],
+    data : { authGuardPipe : redirecToLogin }
+  },
+  
+
+  { 
+    path: 'livros/imagem/:id', component: LivroImagemComponent,
+    canActivate : [AngularFireAuthGuard],
+    data : { authGuardPipe : redirecToLogin }
   },
 
   { 
