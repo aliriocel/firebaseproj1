@@ -8,12 +8,12 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class MenuComponent implements OnInit {
 
-  email : string = "";
+  user : string = "";
   constructor(private auth : AngularFireAuth) { }
 
   ngOnInit(): void {
     this.auth.user.subscribe(data=>{
-      this.email = data.email;
+      this.user = data.email;
     })
   }
 

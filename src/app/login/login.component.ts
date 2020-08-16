@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup,FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -10,35 +9,42 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class LoginComponent implements OnInit {
 
+
+  //login : Login;
   formGroup : FormGroup;
   message : string = null;
 
   constructor(private formBuilder : FormBuilder,
     private router : Router,
-    private auth : AngularFireAuth) {
-      this.iniciarForm();
-    }
+    public auth: AngularFireAuth) {
+    this.iniciarForm();
+  }
 
   ngOnInit(): void {
+   
   }
 
   iniciarForm(){
     this.formGroup= this.formBuilder.group({
       username : ['',[Validators.email] ],
-      password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(16)]]
+      password: ['', [Validators.required, Validators.minLength(13), Validators.maxLength(16)]]
     })
   }
 
-  tryLogin(){
+  tryRegister(){
+
     let user = this.formGroup.controls['username'].value;
     let pass = this.formGroup.controls['password'].value;
-    //console.log(user + pass);
+    
+    this.message = null;
+
     this.auth.signInWithEmailAndPassword(user,pass).then(data=>{
-      //this.message = "Usuario ok";
+      console.log(data.user.email);
       this.router.navigate(['livros']);
     }).catch(data=>{
-      this.message = "Usuário inválido";
-    });
+      console.log("error log");
+      this.message = "Login inválido";
+    })
   }
 
 

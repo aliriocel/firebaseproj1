@@ -1,0 +1,27 @@
+<app-menu></app-menu>
+
+<div class="container">
+    <h1>Lista de Clientes</h1>
+    <input type="text" >
+
+    <button class="btn btn-primary" (click)="buscar()">Buscar</button>
+
+    <table class="table" *ngIf="resultados === true">
+        <tr>
+            <p>resultados para {{busca}}</p>
+        </tr>
+        <tr>
+            <th></th>
+            <th>Nome</th>
+            <th>Telefone</th>
+            <th></th>
+        </tr>
+        <tr *ngFor="let cliente of itens">
+<td><img src="{{cliente.imgUrl}}" width="70"/></td>
+<td>{{cliente.nome}}</td>
+<td>{{cliente.telefone | currency:'BRL'}}</td>
+<td><a [routerLink]="['/cliente/',cliente.id]" class="btn btn-warning">Vizualizar</a></td>
+        </tr>
+    </table>
+    <div *ngIf="resultados === false">Nenhum Cliente Encontrado</div>
+</div>

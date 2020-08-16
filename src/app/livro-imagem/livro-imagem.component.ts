@@ -14,6 +14,7 @@ export class LivroImagemComponent implements OnInit {
   livro : Livro = new Livro();
   image : any;
   urlImage : any;
+ 
 
   constructor(private firestore: AngularFirestore, 
     private storage : AngularFireStorage,

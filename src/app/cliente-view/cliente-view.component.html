@@ -1,0 +1,40 @@
+<app-menu></app-menu>
+<div class="container">
+    <h1>Informações do Cliente</h1>
+    <div class="row">
+    <div class="col-md-3">
+        <img src="{{urlImage}}" width="100%" />
+        <p>
+            <a [routerLink]="['/cliente/imagem/',cliente.id]" class="btn btn-primary">Atualizar Foto</a>
+        </p>
+    </div>
+    <div class="col-md-9">
+        <div class="row">
+            <div class="col-md-1 label">Nome</div>
+            <div class="col-md-11">{{cliente.nome}}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-1 label">Telefone</div>
+            <div class="col-md-11">{{cliente.telefone}}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-1 label">CPF</div>
+            <div class="col-md-11">{{cliente.cpf}}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 label">Endereço</div>
+            <div class="col-md-12">{{cliente.endereco}}</div>
+        </div>
+        <div>
+            <div class="row">
+                <div class="col-md-12 label">E-mail</div>
+                <div class="col-md-12">{{cliente.email}}</div>
+            </div>
+            <div>
+            
+            <a [routerLink]="['/cliente/update/',cliente.id]" class="btn btn-warning">Atualizar</a>
+            <a [routerLink]="['/cliente/delete/',cliente.id]" class="btn btn-danger">Excluir</a>
+        </div>
+    </div>
+</div>
+</div>

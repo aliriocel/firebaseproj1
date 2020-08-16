@@ -2,10 +2,17 @@
 
 <div class="container">
     <h1>Lista de Livros</h1>
-    <table class="table">
+    <input type="text" >
+
+    <button class="btn btn-primary" (click)="buscar()">Buscar</button>
+
+    <table class="table" *ngIf="resultados === true">
+        <tr>
+            <p>resultados para {{busca}}</p>
+        </tr>
         <tr>
             <th></th>
-            <th>Nome</th>
+            <th>Titulo</th>
             <th>Preço</th>
             <th></th>
         </tr>
@@ -16,4 +23,5 @@
 <td><a [routerLink]="['/livros/',livro.id]" class="btn btn-warning">Vizualizar</a></td>
         </tr>
     </table>
+    <div *ngIf="resultados === false">Nenhum Livro Encontrado</div>
 </div>

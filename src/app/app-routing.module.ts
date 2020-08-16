@@ -11,6 +11,13 @@ import { LivrosNewComponent } from './livros-new/livros-new.component';
 import { UsuarioNewComponent } from './usuario-new/usuario-new.component';
 import { LivroImagemComponent } from './livro-imagem/livro-imagem.component';
 import { PerfilComponent } from './perfil/perfil.component';
+import { LivroBuscaTituloComponent } from './livro-busca-titulo/livro-busca-titulo.component';
+import { ClienteComponent } from './cliente/cliente.component';
+import { ClienteDeleteComponent } from './cliente-delete/cliente-delete.component';
+import { ClienteNewComponent } from './cliente-new/cliente-new.component';
+import { ClienteUpdateComponent } from './cliente-update/cliente-update.component';
+import { ClienteViewComponent } from './cliente-view/cliente-view.component';
+import { ClienteBuscaNomeComponent } from './cliente-busca-nome/cliente-busca-nome.component';
 
 const redirecToLogin = () => redirectUnauthorizedTo(['login']);
 
@@ -51,11 +58,17 @@ const routes: Routes = [
 
 
   { 
-    path: 'livros/:id', component: LivrosViewComponent,
-    canActivate : [AngularFireAuthGuard],
+    path: 'livros/:id', 
+    component: LivrosViewComponent, 
+    canActivate: [AngularFireAuthGuard],
     data : { authGuardPipe : redirecToLogin }
-  
+  },
 
+  { 
+    path: 'livros/busca/titulo', 
+    component: LivroBuscaTituloComponent, 
+    canActivate: [AngularFireAuthGuard],
+    data : { authGuardPipe : redirecToLogin }  
   },
 
   { 
@@ -66,6 +79,44 @@ const routes: Routes = [
     path: 'perfil', component: PerfilComponent,
     canActivate : [AngularFireAuthGuard],
     data : { authGuardPipe : redirecToLogin }
+  },
+
+  { 
+    path: 'cliente', component: ClienteComponent,
+    canActivate : [AngularFireAuthGuard],
+    data : { authGuardPipe : redirecToLogin }
+  },
+
+  { 
+    path: 'cliente/delete/:id', component: ClienteDeleteComponent,
+    canActivate : [AngularFireAuthGuard],
+    data : { authGuardPipe : redirecToLogin }
+  },
+
+  { 
+    path: 'cliente/:id', 
+    component: ClienteViewComponent, 
+    canActivate: [AngularFireAuthGuard],
+    data : { authGuardPipe : redirecToLogin }
+  },
+
+  { 
+    path: 'cliente/new', component: ClienteNewComponent,
+    canActivate : [AngularFireAuthGuard],
+    data : { authGuardPipe : redirecToLogin }
+  },
+
+  { 
+    path: 'cliente/update/:id', component: ClienteUpdateComponent,
+    canActivate : [AngularFireAuthGuard],
+    data : { authGuardPipe : redirecToLogin }
+  },
+
+  { 
+    path: 'cliente/busca/titulo', 
+    component: ClienteBuscaNomeComponent, 
+    canActivate: [AngularFireAuthGuard],
+    data : { authGuardPipe : redirecToLogin }  
   },
   
 

@@ -19,7 +19,14 @@ import { LivrosUpdateComponent } from './livros-update/livros-update.component';
 import { LivrosDeleteComponent } from './livros-delete/livros-delete.component';
 import { UsuarioNewComponent } from './usuario-new/usuario-new.component';
 import { LivroImagemComponent } from './livro-imagem/livro-imagem.component';
-import { PerfilComponent } from './perfil/perfil.component'; // Local
+import { PerfilComponent } from './perfil/perfil.component';
+import { LivroBuscaTituloComponent } from './livro-busca-titulo/livro-busca-titulo.component';
+import { ClienteComponent } from './cliente/cliente.component';
+import { ClienteDeleteComponent } from './cliente-delete/cliente-delete.component';
+import { ClienteNewComponent } from './cliente-new/cliente-new.component';
+import { ClienteUpdateComponent } from './cliente-update/cliente-update.component';
+import { ClienteViewComponent } from './cliente-view/cliente-view.component';
+import { ClienteBuscaNomeComponent } from './cliente-busca-nome/cliente-busca-nome.component'; // Local
 
 registerLocaleData(localePt, 'pt-BR');
 
@@ -36,7 +43,14 @@ registerLocaleData(localePt, 'pt-BR');
     LivrosDeleteComponent,
     UsuarioNewComponent,
     LivroImagemComponent,
-    PerfilComponent
+    PerfilComponent,
+    LivroBuscaTituloComponent,
+    ClienteComponent,
+    ClienteDeleteComponent,
+    ClienteNewComponent,
+    ClienteUpdateComponent,
+    ClienteViewComponent,
+    ClienteBuscaNomeComponent
   ],
   imports: [
     BrowserModule,

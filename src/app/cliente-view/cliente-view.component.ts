@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { Livro } from '../model/livro';
+import { Cliente } from '../model/cliente';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AngularFireStorage } from '@angular/fire/storage';
 
 @Component({
-  selector: 'app-livros-view',
-  templateUrl: './livros-view.component.html',
-  styleUrls: ['./livros-view.component.css']
+  selector: 'app-cliente-view',
+  templateUrl: './cliente-view.component.html',
+  styleUrls: ['./cliente-view.component.css']
 })
-export class LivrosViewComponent implements OnInit {
-  livro : Livro = new Livro();
+export class ClienteViewComponent implements OnInit {
+  cliente : Cliente = new Cliente();
   urlImage : any;
   constructor(private firestore: AngularFirestore,
     private route: ActivatedRoute,
@@ -24,21 +24,19 @@ export class LivrosViewComponent implements OnInit {
 
       let id = resp.get('id');
 
-      this.firestore.collection('livro').doc(id).snapshotChanges().subscribe(data=>{
-        this.livro = data.payload.data() as Livro;
-        this.livro.id = data.payload.id;
+      this.firestore.collection('cliente').doc(id).snapshotChanges().subscribe(data=>{
+        this.cliente = data.payload.data() as Cliente;
+        this.cliente.id = data.payload.id;
         this.download();
       })
-    })
-
-    
+    })    
   }
 
 
   download(){
-    this.storage.storage.ref().child(`livro/${this.livro.id}.jpg`).getDownloadURL().then(data=>{
+    this.storage.storage.ref().child(`cliente/${this.cliente.id}.jpg`).getDownloadURL().then(data=>{
       console.log(data);
-      this.livro.imgUrl = data;
+      this.urlImage = data;
     })
   }
 
